@@ -24,6 +24,7 @@ blue3=(202,255,255)
 dark_green=(0,102,0)
 purple1=(171,130,255)
 light_yellow=(255,255,0)
+voilet=(60,180,220)
 display_width=800
 display_height=600
 gameDisplay=pygame.display.set_mode((800,600))
@@ -51,7 +52,7 @@ turretWidth=5
 ground_height=35
 wheelWidth=5
 smallfont=pygame.font.SysFont("Xacto Blade.ttf",25)
-mediumfont=pygame.font.Font("Xacto Blade.ttf",30)
+mediumfont=pygame.font.Font("Gagalin-Regular.otf",30)
 largefont=pygame.font.Font("Gagalin-Regular.otf",80)
 extralarge=pygame.font.SysFont("comicsansms",120)
 def text_objects(text,color,size):
@@ -140,13 +141,14 @@ def game_controls():
                        quit()
                        
                 
-              gameDisplay.fill(white)
+              gameDisplay.fill(voilet)
  
              
-              message_to_screen("Controls",green,-100,"large")
-              message_to_screen("Fire:Spacebar",blue,30,"medium" )
-              message_to_screen("Move turret:Up and Down arrows",blue,100,"medium" )
-              message_to_screen("Move tank:Left and right arrows",blue,160,"medium" )
+              message_to_screen("Controls",light_green,-100,"large")
+              message_to_screen("Fire:Spacebar",blue,20,"medium" )
+              message_to_screen("Move turret:Up and Down arrows",blue,90,"medium" )
+              message_to_screen("Move tank:Left and right arrows",blue,140,"medium" )
+              message_to_screen("Increase Power:Press D",red,180,"medium")
               
              
               
@@ -334,7 +336,7 @@ def enemy_fireShell2(xy,tankX,tankY,currentTurPos,gun_power,xlocation,barrierWid
         pygame.draw.circle(gameDisplay,green,(startingShell[0],startingShell[1]),5)
        
         startingShell[0]+=(12-currentTurPos)*2
-        gun_power3=random.randrange(int(currentPower*0.90),int(currentPower*1.10))
+        gun_power3=random.randrange(int(currentPower*0.90),int(currentPower*1.20))
         gun_power2=float(gun_power3/50)
         startingShell[1]+=int((((startingShell[0]-xy[0])*0.015/gun_power2)**2-(currentTurPos+currentTurPos/(12-currentTurPos))))
         if startingShell[1]>display_height-ground_height:
